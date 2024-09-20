@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import twaLogo from './assets/tapps.png'
 import './App.css'
 
 import WebApp from '@twa-dev/sdk'
@@ -32,13 +33,8 @@ function App() {
     <>
       {/* Display username */}
       <div className="card" style={{textAlign: 'left'}}>
+        <img src={twaLogo} className="logo" alt="TWA logo" />
         <p>Username: {username}</p>
-      </div>
-      {/* Display messages */}
-      <div className="card" style={{textAlign: 'left'}}>
-        {messages.map((message, index) => (
-          <p key={index}>{message.time}: {message.text}</p>
-        ))}
       </div>
       {/* Input form */}
       <div className="card">
@@ -50,6 +46,12 @@ function App() {
           />
           <button type="submit">Send</button>
         </form>
+      </div>
+      {/* Display messages */}
+      <div className="card" style={{textAlign: 'left'}}>
+        {messages.map((message, index) => (
+          <p key={index}>{message.time}: {message.text}</p>
+        ))}
       </div>
     </>
   )
