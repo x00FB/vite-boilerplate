@@ -25,17 +25,17 @@ function App() {
   return (
     <>
       {/* Display initData */}
-      <div className="card" style={{textAlign: 'left', wordWrap: 'break-word'}}>
+      <div className="card" style={{textAlign: 'left'}}>
         <p>Init Data: {initData}</p>
       </div>
       {/* Display messages */}
-      <div className="card">
+      <div className="card" style={{textAlign: 'left'}}>
         {messages.map((message, index) => (
           <p key={index}>{message.time}: {message.text}</p>
         ))}
       </div>
       {/* Input form */}
-      <div className="card">
+      <div className="card" style={{textAlign: 'left'}}>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
