@@ -5,7 +5,7 @@ import WebApp from '@twa-dev/sdk'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [initData, setInitData] = useState(null)
+  const [initData, setInitData] = useState<string | null>(null)
 
   useEffect(() => {
     setInitData(WebApp.initData);
