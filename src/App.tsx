@@ -9,10 +9,12 @@ function App() {
   const [messages, setMessages] = useState<Array<{ text: string, time: string }>>([])
 
   useEffect(() => {
-    const params = new URLSearchParams(WebApp.initData);
-    const user = JSON.parse(decodeURIComponent(params.get('user') || ''));
-    if (user && user.username) {
-      setUsername(user.username);
+    if (WebApp.initData) {
+      const params = new URLSearchParams(WebApp.initData);
+      const user = JSON.parse(decodeURIComponent(params.get('user') || ''));
+      if (user && user.username) {
+        setUsername(user.username);
+      }
     }
   }, []);
 
