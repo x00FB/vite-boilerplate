@@ -4,12 +4,16 @@ import './App.css'
 import WebApp from '@twa-dev/sdk'
 
 function App() {
-  const [initData, setInitData] = useState<string | null>(null)
+  const [username, setUsername] = useState<string | null>(null)
   const [userText, setUserText] = useState('')
   const [messages, setMessages] = useState<Array<{ text: string, time: string }>>([])
 
   useEffect(() => {
-    setInitData(WebApp.initData);
+    const params = new URLSearchParams(WebApp.initData);
+    const user = JSON.parse(decodeURIComponent(params.get('user') || ''));
+    if (user && user.username) {
+      setUsername(user.username);
+    }
   }, []);
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -24,9 +28,9 @@ function App() {
 
   return (
     <>
-      {/* Display initData */}
+      {/* Display username */}
       <div className="card" style={{textAlign: 'left'}}>
-        <p>Init Data: {initData}</p>
+        <p>Username: {username}</p>
       </div>
       {/* Display messages */}
       <div className="card">
