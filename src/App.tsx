@@ -1,23 +1,30 @@
-import { useState, useEffect } from 'react'
+tsx
+import { useState } from 'react'
 import './App.css'
 
-import WebApp from '@twa-dev/sdk'
-
 function App() {
-  const [initData, setInitData] = useState<string | null>(null)
   const [userText, setUserText] = useState('')
-
-  useEffect(() => {
-    setInitData(WebApp.initData);
-  }, []);
+  const [messages, setMessages] = useState<Array<{ text: string, time: string }>>([])
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    setInitData(userText);
+    const newMessage = {
+      text: userText,
+      time: new Date().toLocaleTimeString()
+    }
+    setMessages(prevMessages => [newMessage, ...prevMessages]);
+    setUserText('');
   }
 
   return (
     <>
+      {/* Display messages */}
+      <div className="card">
+        {messages.map((message, index) => (
+          <p key={index}>{message.time}: {message.text}</p>
+        ))}
+      </div>
+      {/* Input form */}
       <div className="card">
         <form onSubmit={handleSubmit}>
           <input 
@@ -25,12 +32,8 @@ function App() {
             value={userText} 
             onChange={(e) => setUserText(e.target.value)} 
           />
-          <button type="submit">Submit</button>
+          <button type="submit">Send</button>
         </form>
-      </div>
-      {/* Display initData */}
-      <div className="card">
-        <p>Init Data: {initData}</p>
       </div>
     </>
   )
