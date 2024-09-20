@@ -18,7 +18,7 @@ function App() {
       text: userText,
       time: new Date().toLocaleTimeString()
     }
-    setMessages(prevMessages => [...prevMessages, newMessage]);
+    setMessages(prevMessages => [newMessage, ...prevMessages]);
     setUserText('');
   }
 
@@ -26,12 +26,12 @@ function App() {
     <>
     <div style={{textAlign: 'left'}}>
       {/* Display initData */}
-      <div className="card">
+      <div className="card" style={{textAlign: 'left'}}>
         <p>Init Data: {initData}</p>
       </div>
       {/* Display messages */}
       <div className="card">
-        {messages.reverse().map((message, index) => (
+        {messages.map((message, index) => (
           <p key={index}>{message.time}: {message.text}</p>
         ))}
       </div>
