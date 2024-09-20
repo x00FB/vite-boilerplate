@@ -23,6 +23,7 @@ function App() {
   }
 
   return (
+    <>
     <div style={{textAlign: 'left'}}>
       {/* Display initData */}
       <div className="card" style={{textAlign: 'left'}}>
@@ -46,6 +47,7 @@ function App() {
         </form>
       </div>
     </div>
+    </>
   )
 }
 
