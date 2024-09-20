@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://ton.org/dev" target="_blank">
+{/*         <a href="https://ton.org/dev" target="_blank">
           <img src={twaLogo} className="logo" alt="TWA logo" />
         </a>
         <a href="https://vitejs.dev" target="_blank">
@@ -20,17 +20,18 @@ function App() {
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        </a> */}
       </div>
-      <h1>TWA + Vite + React</h1>
+{/*       <h1>TWA + Vite + React</h1> */}
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
       </div>
+      <div>{WebApp.initData}</div>
       {/*  */}
       <div className="card">
-        <button onClick={() => WebApp.showAlert(`Init Data is ${WebApp.initData}`)}>
+        <button onClick={() => WebApp.showAlert(`Count is ${count}`)}>
             Show Alert
         </button>
       </div>
