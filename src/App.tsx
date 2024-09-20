@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       {/* Display initData */}
-      <div className="card" style={{textAlign: 'left'}}>
+      <div className="card" style={{textAlign: 'left', wordWrap: 'break-word'}}>
         <p>Init Data: {initData}</p>
       </div>
       {/* Display messages */}
