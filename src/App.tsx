@@ -8,7 +8,9 @@ function App() {
   const [initData, setInitData] = useState<string | null>(null)
 
   useEffect(() => {
-    setInitData(JSON.stringify(WebApp.initDataUnsafe, null, 2));
+    if (WebApp.initDataUnsafe) {
+      setInitData(JSON.stringify(WebApp.initDataUnsafe, null, 2));
+    }
   }, []);
 
   return (
