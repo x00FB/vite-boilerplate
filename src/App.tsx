@@ -41,7 +41,7 @@ function App() {
         ))}
       </div>
       {/* Input form */}
-      <div className="card" style={{textAlign: 'left'}}>
+      <div className="card">
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
