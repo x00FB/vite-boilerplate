@@ -1,9 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
+import WebApp from '@twa-dev/sdk'
+
 function App() {
+  const [initData, setInitData] = useState<string | null>(null)
   const [userText, setUserText] = useState('')
   const [messages, setMessages] = useState<Array<{ text: string, time: string }>>([])
+
+  useEffect(() => {
+    setInitData(WebApp.initData);
+  }, []);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -17,6 +24,10 @@ function App() {
 
   return (
     <>
+      {/* Display initData */}
+      <div className="card" style={{textAlign: 'left'}}>
+        <p>Init Data: {initData}</p>
+      </div>
       {/* Display messages */}
       <div className="card">
         {messages.map((message, index) => (
