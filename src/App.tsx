@@ -31,7 +31,7 @@ function App() {
       </div>
       {/* Display messages */}
       <div className="card">
-        {messages.slice(0).reverse().map((message, index) => (
+        {messages.reverse().map((message, index) => (
           <p key={index}>{message.time}: {message.text}</p>
         ))}
       </div>
