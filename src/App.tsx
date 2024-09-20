@@ -5,9 +5,10 @@ import WebApp from '@twa-dev/sdk'
 
 function App() {
   const [count, setCount] = useState(0)
-  
+  const [initData, setInitData] = useState(null)
+
   useEffect(() => {
-    console.log(WebApp.initData);
+    setInitData(WebApp.initData);
   }, []);
 
   return (
@@ -22,6 +23,10 @@ function App() {
         <button onClick={() => WebApp.showAlert(`Count is ${count}`)}>
             Show Alert
         </button>
+      </div>
+      {/* Display initData */}
+      <div className="card">
+        <p>Init Data: {initData}</p>
       </div>
     </>
   )
