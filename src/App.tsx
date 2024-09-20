@@ -18,19 +18,19 @@ function App() {
       text: userText,
       time: new Date().toLocaleTimeString()
     }
-    setMessages(prevMessages => [newMessage, ...prevMessages]);
+    setMessages(prevMessages => [...prevMessages, newMessage]);
     setUserText('');
   }
 
   return (
-    <>
+    <div style={{textAlign: 'left'}}>
       {/* Display initData */}
-      <div className="card" style={{textAlign: 'left'}}>
+      <div className="card">
         <p>Init Data: {initData}</p>
       </div>
       {/* Display messages */}
       <div className="card">
-        {messages.map((message, index) => (
+        {messages.slice(0).reverse().map((message, index) => (
           <p key={index}>{message.time}: {message.text}</p>
         ))}
       </div>
@@ -45,7 +45,7 @@ function App() {
           <button type="submit">Send</button>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 
