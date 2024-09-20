@@ -4,25 +4,29 @@ import './App.css'
 import WebApp from '@twa-dev/sdk'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [initData, setInitData] = useState<string | null>(null)
+  const [userText, setUserText] = useState('')
 
   useEffect(() => {
     setInitData(WebApp.initData);
   }, []);
 
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setInitData(userText);
+  }
+
   return (
     <>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      {/*  */}
-      <div className="card">
-        <button onClick={() => WebApp.showAlert(`Count is ${count}`)}>
-            Show Alert
-        </button>
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="text" 
+            value={userText} 
+            onChange={(e) => setUserText(e.target.value)} 
+          />
+          <button type="submit">Submit</button>
+        </form>
       </div>
       {/* Display initData */}
       <div className="card">
