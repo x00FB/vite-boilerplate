@@ -8,7 +8,7 @@ function App() {
   const [initData, setInitData] = useState<string | null>(null)
 
   useEffect(() => {
-    setInitData(WebApp.initData);
+    setInitData(JSON.stringify(WebApp.initDataUnsafe, null, 2));
   }, []);
 
   return (
@@ -26,7 +26,7 @@ function App() {
       </div>
       {/* Display initData */}
       <div className="card">
-        <p>Init Data: {initData}</p>
+        <pre>Init Data: {initData}</pre>
       </div>
     </>
   )
